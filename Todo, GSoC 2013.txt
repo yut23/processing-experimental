@@ -127,6 +127,12 @@ x Working for local code
 * Labels for predefined class objects
 * Chaining support for labels
 
+Javadoc loading
+===============
+
+* Get the javadoc loaded from P5 jdoc. PApplet for now.
+* For now, on hovering over a function, if jdoc available, show it as tooltip. No scope resolution for now.  
+
 Synchronization 
 ===============
 

@@ -155,7 +155,7 @@ public class ASTGenerator {
     setupGUI();
     //addCompletionPopupListner();
     addListeners(); 
-    //loadJavaDoc();
+    loadJavaDoc();
     predictionsEnabled = new AtomicBoolean(true);
   }
   
@@ -408,7 +408,8 @@ public class ASTGenerator {
 
       @Override
       public void run() {
-        JavadocHelper.loadJavaDoc(jdocMap, editor.mode().getReferenceFolder());
+        //JavadocHelper.loadJavaDoc(jdocMap, editor.mode().getReferenceFolder());
+        jdocMap = JdocsTest.loadJavaDoc2();
       }
     });
     t.start();
@@ -1437,7 +1438,12 @@ public class ASTGenerator {
   }
 
   public String getLabelForASTNode(int lineNumber, String name, int offset) {
-    return getASTNodeAt(lineNumber, name, offset, false).getLabel();
+    ASTNodeWrapper awrap = getASTNodeAt(lineNumber, name, offset, false);
+    System.out.println(name);
+    String ret = jdocMap.get(name);
+    System.out.println(ret);
+    if(ret != null) return ret;
+    return awrap.getLabel();
     //return "";
   }
   
