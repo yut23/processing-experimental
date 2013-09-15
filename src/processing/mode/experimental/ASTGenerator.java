@@ -409,7 +409,7 @@ public class ASTGenerator {
       @Override
       public void run() {
         //JavadocHelper.loadJavaDoc(jdocMap, editor.mode().getReferenceFolder());
-        jdocMap = JdocsTest.loadJavaDoc2();
+        jdocMap = JdocsTest.loadJavaDoc2(editor.dmode.getContentFile("data").getAbsolutePath());
       }
     });
     t.start();
@@ -1439,11 +1439,11 @@ public class ASTGenerator {
 
   public String getLabelForASTNode(int lineNumber, String name, int offset) {
     ASTNodeWrapper awrap = getASTNodeAt(lineNumber, name, offset, false);
-    System.out.println(name);
+    //System.out.println(name);
     String ret = jdocMap.get(name);
-    System.out.println(ret);
+    //System.out.println(ret);
     if(ret != null) return ret;
-    return awrap.getLabel();
+    return awrap.getLabel() + "";
     //return "";
   }
   
