@@ -106,8 +106,8 @@
 
 	<target name="full_install" depends="package" description="Full install to sketchbook">
 		<delete dir="${sketchbook.location}/modes/${lib.name}" />
-		<copy todir="${sketchbook.location}/modes/">
-			<fileset dir="dist" />
+		<copy todir="${sketchbook.location}/modes/${lib.name}">
+			<fileset dir="dist/${lib.name}" />
 		</copy>
 	</target>
 
